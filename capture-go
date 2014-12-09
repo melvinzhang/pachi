@@ -3,4 +3,4 @@
 # mercy=1 for capture 1 
 # resign_threshold=0.0 means AI never resigns
 # threads=8 means use eight threads
-./pachi -t 5 mercy=1,resign_threshold=0.0,threads=8
+./pachi -t $1 mercy=1,resign_threshold=0.0,threads=1

@@ -136,13 +136,13 @@ play_random_game(struct playout_setup *setup,
 			amafmap->game[amafmap->gamelen++] = coord;
 		}
 
-		if (setup->mercymin && abs(b->captures[S_BLACK] - b->captures[S_WHITE]) > setup->mercymin)
+		if (setup->mercymin && abs(b->captures[S_BLACK] - b->captures[S_WHITE]) >= setup->mercymin)
 			break;
 
 		color = stone_other(color);
 	}
 
-	floating_t score = board_fast_score(b);
+	floating_t score = b->captures[S_WHITE] - b->captures[S_BLACK];
 	int result = (starting_color == S_WHITE ? score * 2 : - (score * 2));
 
 	if (DEBUGL(6)) {
